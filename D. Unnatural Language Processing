@@ -1,0 +1,40 @@
+Q. No.-> https://codeforces.com/contest/1915/problem/D
+Ans->
+#include <bits/stdc++.h>
+using namespace std;
+string solve(string s,int n){
+    string ans="";
+    for( int i=n-1;i>=0;i--){
+        if(s[i]=='a' || s[i]=='e'){
+            ans+=s[i];
+            ans+=s[i-1];
+            ans+='.';
+            i--;
+        }
+        else{
+            ans+=s[i];
+            ans+=s[i-1];
+            ans+=s[i-2];
+            ans+='.';
+            i--;
+            i--;
+        }
+    }
+    ans.pop_back();
+    reverse(ans.begin(),ans.end());
+    return ans;
+}
+ 
+int main() {
+    int n;
+cin>>n;
+while(n){
+    int length;
+    cin>>length;
+    string s;
+    cin>>s;
+   cout<< solve(s,length)<<endl;
+    n--;
+}
+    return 0;
+}
