@@ -1,0 +1,41 @@
+Q.No.-> https://codeforces.com/contest/1915/problem/E
+Ans->
+#include <bits/stdc++.h>
+using namespace std;
+ 
+void solve(vector<long long> glasses) {
+    long long sum = 0;
+    map<long long, int> mp;
+    for (int i=0;i<glasses.size();i++) {
+        if (i % 2 != 0) {
+            sum -= glasses[i];
+        } else {
+            sum += glasses[i];
+        }
+        mp[sum]++;
+    }
+    for (auto i : mp) {
+        if (i.second >= 2 || i.first==0) {
+            cout << "YES" << endl;
+            return; 
+        }
+    }
+    cout << "NO" << endl;
+}
+ 
+int main() {
+    int t;
+    cin >> t;
+ 
+    while (t--) {
+        int n;
+        cin >> n;
+ 
+        vector<long long> glasses(n);
+        for (int i = 0; i < n; ++i) {
+            cin >> glasses[i];
+        }
+        solve(glasses);
+    }
+    return 0;
+}
