@@ -1,0 +1,30 @@
+Q-> https://codeforces.com/problemset/problem/1881/A
+Ans-> #include <bits/stdc++.h>
+using namespace std;
+int main() {
+    
+    int cases;
+    cin>> cases;
+    while(cases--){
+        long long  n,m, cnt=10,f=0,res=0;
+        cin>>n>>m;
+        string x,s;
+        cin>>x>>s;
+        while(cnt--){
+            if( x.find(s) !=string::npos){
+               f=1;
+               break;
+            }
+          res++;
+          x+=x;
+            
+        }
+        if(f==1){
+            cout<<res<<endl;
+        }
+        else
+        cout<<-1<<endl;
+    }
+ 
+    return 0;
+}
